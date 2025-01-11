@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DCoffee - Order Delivery</title>
+    <style>
+        
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Times New Roman', Times, serif;
+            line-height: 1.8;
+            background-color: #f9f7f7;
+            background-image: url('wall1.jpg');
+            color: #333;
+        }
+
+        header {
+            background-color: #5C4033;
+            color: white;
+            padding: 15px 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+
+        nav img {
+            height: 70px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: white;
+            font-size: 20px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #5C4033;
+            min-width: 160px;
+            z-index: 1;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .dropdown-content a {
+            display: block;
+            padding: 10px 15px;
+            text-decoration: none;
+            color: white;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #C19A6B;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        section {
+            padding: 2rem;
+            max-width: 900px;
+            margin: 2rem auto;
+            background: #C2B280;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        section h2 {
+            font-size: 2.5rem;
+            color: #8B4513;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            color: #8B4513;
+        }
+
+        input, select, textarea, button {
+            font-size: 1rem;
+            padding: 0.8rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid #e6e6e6;
+            border-radius: 10px;
+            width: 100%;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        input[type="checkbox"] {
+            width: auto;
+            margin-right: 10px;
+        }
+
+        .menu-options {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        button {
+            background: linear-gradient(135deg, #F8F8FF, #d2b48c);
+            color: #8B4513;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background: linear-gradient(135deg, #d2b48c, #deb887);
+        }
+
+        .confirmation-message {
+            display: none;
+            background-color: #6F4E37;
+            color: white;
+            padding: 1rem;
+            margin: 3rem auto;
+            margin-top: 1rem;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        .back-button {
+            background-color: #6F4E37;
+            color: #8B4513;
+            padding: 0.8rem;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            text-align: center;
+            margin-top: 1rem;
+        }
+
+        .back-button:hover {
+            background-color: #6F4E37;
+        }
+
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #5C4033;
+            border-top: 1px solid #ddd;
+        }
+
+        .footer .left-section {
+            font-size: 14px;
+            line-height: 1.5;
+            color: white;
+        }
+
+        .footer .right-section {
+            text-align: right;
+            font-size: 14px;
+        }
+
+        .footer a {
+            text-decoration: none;
+            color: white;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .footer .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .footer .logo img {
+            height: 50px;
+            margin-left: 10px;
+        }    
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <img src="logo.png" alt="DCoffee Logo">
+            <a href="index.html">Home</a>
+            <a href="aboutus.html">About us</a> 
+            <div class="dropdown">
+                <a href="menu.html">Menu</a>
+                <div class="dropdown-content">
+                    <a href="menu.html">Coffee</a>
+                    <a href="menu2.html">Non Coffee</a>
+                    <a href="menu3.html">Dessert</a>
+                </div>
+            </div>
+            <a href="order.html">Order</a>
+            <a href="contactus.html">Contact us</a>
+        </nav>
+    </header>
+
+    <section>
+        <h2>Place Your Order</h2>
+        <form id="order-form" onsubmit="return confirmOrder()">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+
+            <label for="address">Delivery Address</label>
+            <textarea id="address" name="address" placeholder="Enter your delivery address" rows="3" required></textarea>
+
+            <label for="order">Your Order</label>
+            <div class="menu-options">
+                <!-- Menu items here -->
+                <label><input type="checkbox" name="order" value="Americano"> Americano</label>
+                <label><input type="checkbox" name="order" value="Cappuccino"> Cappuccino</label>
+                <label><input type="checkbox" name="order" value="Espresso"> Espresso</label>
+                 <label><input type="checkbox" name="order" value="Flat White"> Flat White</label>
+                <label><input type="checkbox" name="order" value="Frappucino"> Frappucino</label>
+                <label><input type="checkbox" name="order" value="Cafe Latte"> Cafe Latte</label>
+                <label><input type="checkbox" name="order" value="Caramel Hazelnut Iced"> Caramel Hazelnut Iced</label>
+
+                <label><input type="checkbox" name="order" value="Dalgona Coffee"> Dalgona Coffee</label>
+                <label><input type="checkbox" name="order" value="Ice Creamy Coffee"> Ice Creamy Coffee</label>
+
+                <label><input type="checkbox" name="order" value="Latte"> Latte</label>
+
+                <label><input type="checkbox" name="order" value="Machiato"> Machiato</label>
+                <label><input type="checkbox" name="order" value="Coco Malts"> Coco Malts</label>
+                <label><input type="checkbox" name="order" value="Frozen Fruit Smoothie"> Frozen Fruit Smoothie</label>
+
+                <label><input type="checkbox" name="order" value="Kiwi & Mint Lemonade"> Kiwi & Mint Lemonade</label>
+
+                <label><input type="checkbox" name="order" value="Matcha Whipped Cream"> Matcha Whipped Cream</label>
+
+                <label><input type="checkbox" name="order" value="Strawberry Milk Ice"> Strawberry Milk Ice</label>
+
+                <label><input type="checkbox" name="order" value="Matcha Bubble Tea"> Matcha Bubble Tea</label>
+
+                <label><input type="checkbox" name="order" value="MixBerry"> MixBerry</label>
+                <label><input type="checkbox" name="order" value="Peach Strawberry Lemonade"> Peach Strawberry Lemonade</label>
+
+                <label><input type="checkbox" name="order" value="Perfect Watermelon Smoothie"> Perfect Watermelon Smoothie</label>
+
+                <label><input type="checkbox" name="order" value="Wala Tiramisu"> Wala Tiramisu</label>
+                <label><input type="checkbox" name="order" value="Strawberry Cheesecake"> Strawberry Cheesecake</label>
+
+                <label><input type="checkbox" name="order" value="Biscoff Cheesecake"> Biscoff Cheesecake</label>
+
+                <label><input type="checkbox" name="order" value="Caramel Brownies Cheesecake"> Caramel Brownies Cheesecake</label>
+
+                <label><input type="checkbox" name="order" value="Black Forest Cheesecake"> Black Forest Cheesecake</label>
+
+                <label><input type="checkbox" name="order" value="Blueberry Cheesecake"> Blueberry Cheesecake</label>
+
+            </div>
+
+            <label for="delivery-time">Preferred Delivery Time</label>
+            <input type="text" id="delivery-time" name="delivery-time" placeholder="Enter preferred delivery time (e.g., ASAP/ORDER FOR LATER)" required>
+
+            <label for="payment">Payment Method</label>
+            <select id="payment" name="payment" required>
+                <option value="" disabled selected>Select a payment method</option>
+                <option value="cash">Cash</option>
+                <option value="online">Credit/Debit Card</option>
+                <option value="online">Online Payment</option>
+            </select>
+
+            <button type="submit">Submit Order</button>
+        </form>
+
+        <div id="confirmation-message" class="confirmation-message">
+            Your order has been confirmed! Your order is our priority! We ensure prompt and reliable delivery straight to your doorstep. Enjoy peace of mind with our trusted service. Thank you for choosing DCoffee.
+            <br>
+            <button class="back-button" onclick="goBack()">Click to Go Back</button>
+        </div>
+    </section>
+
+    <script>
+        function confirmOrder() {
+            document.getElementById('order-form').style.display = 'none';
+            document.getElementById('confirmation-message').style.display = 'block';
+            return false;
+        }
+
+        function goBack() {
+            document.getElementById('order-form').reset();
+            document.getElementById('order-form').style.display = 'block';
+            document.getElementById('confirmation-message').style.display = 'none';
+        }
+    </script>
+
+<footer class="footer">
+        <div class="left-section">
+            DCoffee <br>
+            Company registration no: 209911085400<br>
+            COPYRIGHT 2025 © DCOFFEE
+        </div>
+        <div class="right-section">
+            <a href="#privacy-policy">Privacy Policy</a><br>
+            <a href="#terms-conditions">Terms & Conditions</a><br>
+            <a href="#anti-bribery-policy">Anti-Bribery Corruption Policy</a><br>
+            <a href="#data-protection-policy">Personal Data Protection Policy</a>
+        </div>
+        <div class="logo">
+            <img src="logo1.png" alt="DCoffee Logo">
+        </div>
+    </footer>
+
+
+</body>
+</html>

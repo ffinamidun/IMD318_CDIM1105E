@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>DCoffee</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            line-height: 1.8;
+            color: white;
+            background-color: #000;
+            background-image: url('wall1.jpg');
+        }
+
+        header {
+            background-color: #5C4033;
+            padding: 15px 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+
+        nav img {
+            height: 70px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: white;
+            font-size: 20px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #5C4033;
+            min-width: 160px;
+            z-index: 1;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .dropdown-content a {
+            display: block;
+            padding: 10px 15px;
+            text-decoration: none;
+            color: white;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #C19A6B;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        section {
+            padding: 2rem;
+            max-width: 1100px;
+            margin: 2rem auto;
+            background: #ffffff;
+            color: #333;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        section h2 {
+            font-size: 2.5rem;
+            color: #a0522d;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            text-align: justify;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        label {
+            font-weight: 600;
+            color: #8b4513;
+        }
+
+        input, textarea, button {
+            padding: 1rem;
+            border: 1px solid #f4e6df;
+            border-radius: 10px;
+            font-size: 1rem;
+            background: #fdf6f3;
+            transition: all 0.3s ease;
+        }
+
+        input:focus, textarea:focus {
+            border-color: #d2b48c;
+            outline: none;
+        }
+
+        button {
+            background: #d2b48c;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s ease;
+            padding: 1rem;
+        }
+
+        button:hover {
+            background: #c2a178;
+        }
+
+        .social-media {
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .social-media h2 {
+            font-size: 1.8rem;
+            color: #8b4513;
+            margin-bottom: 1rem;
+        }
+
+        .social-media div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-media a {
+            text-decoration: none;
+            text-align: center;
+            color: #333;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .social-media a:hover {
+            transform: scale(1.1);
+            color: #8b4513;
+        }
+
+        .social-media img {
+            width: 60px;
+            height: 60px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .social-media img:hover {
+            transform: scale(1.2);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+
+       .footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #5C4033;
+            border-top: 1px solid #ddd;
+        }
+
+        .footer .left-section {
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .footer .right-section {
+            text-align: right;
+            font-size: 14px;
+        }
+
+        .footer a {
+            text-decoration: none;
+            color: white;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .footer .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .footer .logo img {
+            height: 50px;
+            margin-left: 10px;
+        }    
+
+        .confirmation-message {
+            display: none;
+            background-color: #4caf50;
+            color: white;
+            padding: 1rem;
+            margin-top: 1rem;
+            text-align: center;
+            border-radius: 10px;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <img src="logo.png" alt="DCoffee Logo">
+            <a href="index.html">Home</a>
+            <a href="aboutus.html">About Us</a> 
+            <div class="dropdown">
+                <a href="menu.html">Menu</a>
+                <div class="dropdown-content">
+                    <a href="menu.html">Coffee</a>
+                    <a href="menu2.html">Non Coffee</a>
+                    <a href="menu3.html">Dessert</a>
+                </div>
+            </div>
+            <a href="order.html">Order</a>
+            <a href="contactus.html">Contact us</a>
+        </nav>
+    </header>
+
+    <section>
+        <h2>We’d Love to Hear From You!</h2>
+        <p>If you have any questions, feedback, or just want to say hello, feel free to get in touch. We’re always here for our valued customers. Reach out via the contact form below, or connect with us on our social media channels. Your input helps us grow and serve you better because at DCoffee, every cup and every customer matters.</p>
+
+        <form id="contact-form" action="#" method="POST">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Your Full Name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Your Email Address" required>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
+
+            <button type="submit">Send Message</button>
+        </form>
+
+        <div id="confirmation-message" class="confirmation-message">
+            Your message has been sent. Thank you for contacting us!
+        </div>
+
+        <p>We’re also proud to extend our connection beyond our café. Follow us on our social media channels to stay updated on our latest events, promotions, and coffee adventures. Join us in celebrating the art of coffee and the joy of community.</p>
+
+        <div class="social-media">
+            <h2>Follow Us</h2>
+            <div>
+                <a href="https://www.instagram.com/dcoffee.my/" target="_blank">
+                    <img src="instagram.jpg" alt="Instagram">
+                    <p>Instagram</p>
+                </a>
+                <a href="https://twitter.com/dcoffee.my/" target="_blank">
+                    <img src="twit.jpg" alt="Twitter">
+                    <p>Twitter</p>
+                </a>
+                <a href="https://www.tiktok.com/dcoffee.my/" target="_blank">
+                    <img src="tiktok.jpg" alt="TikTok">
+                    <p>TikTok</p>
+                </a>
+                <a href="https://wa.me/60134092076" target="_blank">
+                    <img src="whatsapp.jpg" alt="WhatsApp">
+                    <p>WhatsApp</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+   <footer class="footer">
+        <div class="left-section">
+            DCoffee <br>
+            Company registration no: 209911085400<br>
+            COPYRIGHT 2025 © DCOFFEE
+        </div>
+        <div class="right-section">
+            <a href="#privacy-policy">Privacy Policy</a><br>
+            <a href="#terms-conditions">Terms & Conditions</a><br>
+            <a href="#anti-bribery-policy">Anti-Bribery Corruption Policy</a><br>
+            <a href="#data-protection-policy">Personal Data Protection Policy</a>
+        </div>
+        <div class="logo">
+            <img src="logo1.png" alt="DCoffee Logo">
+        </div>
+    </footer>
+
+
+
+    <script>
+        document.getElementById("contact-form").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent form submission
+            document.getElementById("confirmation-message").style.display = "block"; // Show confirmation
+            event.target.reset(); // Clear form fields
+        });
+    </script>
+</body>
+</html>

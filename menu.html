@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+    body {
+        font-family:'Times New Roman', Times, serif;;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+        background-color: #f5f5f5;
+        background-image: url('wall1.jpg');
+    }
+
+    h1, h2, h3 {
+        color: #8B4513;
+        margin: 20px 0;
+    }
+
+    .gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+        padding: 20px;
+        justify-items: center;
+        align-items: center;
+        max-width: 800px;
+        margin: auto;
+    }
+
+    .container {
+        position: relative;
+        width: 100%;
+        max-width: 200px;
+        text-align: center;
+    }
+
+    .image {
+        display: block;
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+    }
+
+    .overlay {
+        position: absolute;
+        bottom: 100%;
+        left: 0;
+        right: 0;
+        background-color: rgba(139, 69, 19, 0.9);
+        overflow: hidden;
+        width: 100%;
+        height: 0;
+        transition: 0.5s ease;
+        border-radius: 10px;
+    }
+
+    .container:hover .overlay {
+        bottom: 0;
+        height: 100%;
+    }
+
+    .text {
+        color: white;
+        font-size: 16px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
+
+    .image-name {
+        margin-top: 10px;
+        font-size: 16px;
+        color: #333;
+    }
+
+    .buy-button {
+        display: inline-block;
+        margin-top: 10px;
+        padding: 8px 15px;
+        font-size: 14px;
+        color: white;
+        background-color: #8B4513;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        text-decoration: none;
+    }
+
+    .buy-button:hover {
+        background-color: #6A3D1B;
+    }
+
+
+ header { 
+            color: white; 
+            background-color: #5C4033; 
+            padding: 15px 0;  
+        }  
+ 
+        nav {  
+            display: flex;  
+            justify-content: center;  
+            align-items: center; 
+            gap: 20px;  
+            position: relative; 
+            color: white; 
+        }  
+ 
+        nav img { 
+            height: 70px; 
+            margin-middle: auto; 
+        } 
+ 
+ 
+        nav a {  
+            color: white; 
+            text-decoration: none;  
+            font-size: 20px;  
+            font-family: 'Times New Roman', Times, serif;;  
+            position: relative; 
+        }  
+ 
+        nav a:hover {  
+            text-decoration: underline;  
+        }  
+ 
+        /* Dropdown container */ 
+        .dropdown { 
+            position: relative; 
+            display: inline-block; 
+        } 
+ 
+        /* Dropdown menu */ 
+        .dropdown-content { 
+            color: white; 
+            display: none; /* Hidden by default */ 
+            position: absolute; 
+            background-color: #5C4033; 
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); 
+            min-width: 160px; 
+            z-index: 1; 
+            text-align: left; 
+        } 
+ 
+        .dropdown-content a { 
+            color: white; 
+            padding: 10px 15px; 
+            text-decoration: none; 
+            display: block; 
+            font-family: 'Times New Roman', Times, serif;; 
+        } 
+ 
+        
+        .dropdown-content a:hover { 
+            background-color: #C19A6B; 
+        } 
+ 
+                .dropdown:hover .dropdown-content { 
+            display: block; 
+        } 
+
+       
+    </style>  
+</head> 
+ 
+<body>  
+    <header>  
+        <nav>  
+            <img src="logo.png" alt="DCoffee Logo"> 
+            <a href="index.html">Home</a>  
+            <a href="aboutus.html">About Us</a> 
+            <div class="dropdown"> 
+                <a href="menu.html">Menu</a> 
+                <div class="dropdown-content"> 
+                    <a href="menu.html">Coffee</a> 
+                    <a href="menu2.html">Non Coffee</a> 
+                    <a href="menu3.html">Dessert</a> 
+                </div> 
+            </div>
+            <a href="order.html">Order</a>  
+            <a href="contactus.html">Contact us</a>  
+    </nav>  
+</header>  
+</body>  
+</style>  
+
+
+<head>
+<style>
+    body {
+        font-family:'Times New Roman', Times, serif;;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+        background-color: #f5f5f5;
+    }
+
+    h1, h2, h3 {
+        color: #8B4513;
+        margin: 20px 0;
+    }
+
+    .gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+        padding: 20px;
+        justify-items: center;
+        align-items: center;
+        max-width: 800px;
+        margin: auto;
+    }
+
+    .container {
+        position: relative;
+        width: 100%;
+        max-width: 200px;
+        text-align: center;
+    }
+
+    .image {
+        display: block;
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+    }
+
+    .overlay {
+        position: absolute;
+        bottom: 100%;
+        left: 0;
+        right: 0;
+        background-color: rgba(139, 69, 19, 0.9);
+        overflow: hidden;
+        width: 100%;
+        height: 0;
+        transition: 0.5s ease;
+        border-radius: 10px;
+    }
+
+.transparent-container {
+            background-color: #C2B280; 
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 900px;
+            margin: 20px auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+    .container:hover .overlay {
+        bottom: 0;
+        height: 100%;
+    }
+
+    .text {
+        color: white;
+        font-size: 16px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
+
+    .image-name {
+        margin-top: 10px;
+        font-size: 16px;
+        color: #333;
+    }
+
+    .buy-button {
+        display: inline-block;
+        margin-top: 10px;
+        padding: 8px 15px;
+        font-size: 14px;
+        color: white;
+        background-color: #8B4513;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        text-decoration: none;
+    }
+
+    .buy-button:hover {
+        background-color: #6A3D1B;
+    }
+
+</style>
+</head>
+
+<body>
+<div class="transparent-container">
+<h1>Hot Coffee Menu</h1>
+
+<div class="gallery">
+    <div class="container">
+        <img src="americano.jpg" alt="Americano coffee" class="image">
+        <div class="overlay">
+            <div class="text">RM 7.00</div>
+        </div>
+        <p class="image-name">Americano</p>
+        
+    </div>
+
+    <div class="container">
+        <img src="Cappucino.jpg" alt="Cappuccino coffee" class="image">
+        <div class="overlay">
+            <div class="text">RM 8.00</div>
+        </div>
+        <p class="image-name">Cappuccino</p>
+            </div>
+
+    <div class="container">
+        <img src="espresso.jpg" alt="Espresso coffee" class="image">
+        <div class="overlay">
+            <div class="text">RM 8.00</div>
+        </div>
+        <p class="image-name">Espresso</p>
+           </div>
+
+    <div class="container">
+        <img src="Flat White.jpg" alt="Flat White coffee" class="image">
+        <div class="overlay">
+            <div class="text">RM 10.00</div>
+        </div>
+        <p class="image-name">Flat White</p>
+           </div>
+
+    <div class="container">
+        <img src="Frappuccino.jpg" alt="Frappuccino coffee" class="image">
+        <div class="overlay">
+            <div class="text">RM 9.00</div>
+        </div>
+        <p class="image-name">Frappuccino</p>
+            </div>
+
+    <div class="container">
+        <img src="cafe latee2.jpg" alt="Café Latte coffee" class="image">
+        <div class="overlay">
+            <div class="text">RM 10.00</div>
+        </div>
+        <p class="image-name">Cafe Latte</p>
+           </div>
+</div>
+
+<h1>Cold Coffee Menu</h1>
+<div class="gallery">
+    <div class="container">
+        <img src="Caramel Hazelnut Iced.jpg" alt="Caramel Hazelnut Iced" class="image">
+        <div class="overlay">
+            <div class="text">RM 7.00</div>
+        </div>
+        <p class="image-name">Caramel Hazelnut Iced</p>
+           </div>
+
+    <div class="container">
+        <img src="Coco Malts.jpg" alt="Coco Malts" class="image">
+        <div class="overlay">
+            <div class="text">RM 8.00</div>
+        </div>
+        <p class="image-name">Coco Malts</p>
+          </div>
+
+    <div class="container">
+        <img src="Dalgona Coffee.jpg" alt="Dalgona Coffee" class="image">
+        <div class="overlay">
+            <div class="text">RM 8.00</div>
+        </div>
+        <p class="image-name">Dalgona Coffee</p>
+           </div>
+
+    <div class="container">
+        <img src="Ice Creamy Coffee.jpg" alt="Ice Creamy Coffee" class="image">
+        <div class="overlay">
+            <div class="text">RM 10.00</div>
+        </div>
+        <p class="image-name">Ice Creamy Coffee</p>
+            </div>
+
+    <div class="container">
+        <img src="Lattee.jpg" alt="Latte Coffee" class="image">
+        <div class="overlay">
+            <div class="text">RM 9.00</div>
+        </div>
+        <p class="image-name">Latte</p>
+            </div>
+
+    <div class="container">
+        <img src="Machiato.jpg" alt="Macchiato Coffee" class="image">
+        <div class="overlay">
+            <div class="text">RM 10.00</div>
+        </div>
+        <p class="image-name">Machiato</p>
+           </div>
+</div>
+ <a href="order.html" class="buy-button">Buy Now</a>
+
+</body>
+</html>
